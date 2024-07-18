@@ -33,6 +33,12 @@ mvn clean install
 docker-compose up --build
 ```
 
+### Run the Application Locally
+
+```
+mvn spring-boot:run
+```
+
 ### Access Swagger UI
 
 Open your browser and go to http://localhost:8080/swagger-ui.html
