@@ -43,6 +43,9 @@ Open your browser and go to http://localhost:8080/swagger-ui.html
 mvn test
 ```
 
+#### Test Cases Result 
+![Test cases result ](image.png)
+
 ### Access the H2 Database
 
 - Open your browser and go to http://localhost:8080/h2-console

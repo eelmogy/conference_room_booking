@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -32,13 +33,13 @@ public class BookingServiceTest {
     @Test
     public void testBookRoom() {
         BookingRequest request = new BookingRequest();
-        request.setStartTime(LocalTime.of(10, 0));
-        request.setEndTime(LocalTime.of(11, 0));
-        request.setNumberOfPeople(5);
+        request.setStartTime(LocalTime.of(12, 0));
+        request.setEndTime(LocalTime.of(13, 0));
+        request.setNumberOfPeople(17);
         
         Booking booking = bookingService.bookRoom(request);
         assertNotNull(booking);
-        assertEquals("Beauty", booking.getConferenceRoomName());
+        assertEquals("Strive", booking.getConferenceRoomName());
     }
 
     @Test
@@ -69,8 +70,8 @@ public class BookingServiceTest {
 
     @Test
     public void testGetAvailableRoomsWithNoConflict() {
-        bookingService.bookRoom(new BookingRequest(LocalTime.of(10, 0), LocalTime.of(11, 0), 5));
-        List<ConferenceRoom> availableRooms = bookingService.getAvailableRooms(LocalTime.of(11, 0), LocalTime.of(12, 0));
+        bookingService.bookRoom(new BookingRequest(LocalTime.of(12, 0), LocalTime.of(13, 0), 5));
+        List<ConferenceRoom> availableRooms = bookingService.getAvailableRooms(LocalTime.of(13, 0), LocalTime.of(14, 0));
         assertFalse(availableRooms.isEmpty());
     }
 }
